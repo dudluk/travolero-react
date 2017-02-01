@@ -3,7 +3,7 @@ import { TripListItem } from "./TripListItem";
 
 export class TripList extends Component {
 
-    getIntialState() {
+    getInitialState() {
         return {
             trips: [
                 {
@@ -19,11 +19,12 @@ export class TripList extends Component {
     };
 
     render() {
-        let items = this.getIntialState().trips;
+        let items = this.getInitialState().trips;
         let nodes = items.map(t => <TripListItem name={t.name}></TripListItem>);
         
         return (<div>
                 <h2>TripList</h2>
+
                 <div>
                     {nodes}
                 </div>
