@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { TripListItem } from "./TripListItem";
 
 export class TripList extends Component {
+    state = {
+        trips: []
+    }
 
-    getInitialState() {
-        return {
+    componentDidMount() {
+        this.setState({
             trips: [
                 {
                     id: 1,
@@ -15,20 +18,18 @@ export class TripList extends Component {
                     name: "New Zealand"
                 }
             ]
-        }
-    };
+        });
+    }
 
     render() {
-        let items = this.getInitialState().trips;
-        let nodes = items.map(t => <TripListItem name={t.name}></TripListItem>);
-        
-        return (<div>
-                <h2>TripList</h2>
+        let nodes = this.state.trips.map(t => <TripListItem key={t.id} trip={t}></TripListItem>);
 
-                <div>
-                    {nodes}
-                </div>
+        return (<div>
+            <h2>TripList</h2>
+            <div>
+                {nodes}
             </div>
+        </div>
         );
     }
 }

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {TripList} from "./Trips/TripList"
+import {Router, Route, browserHistory} from 'react-router';
+
+import {TripList} from "./Trips/TripList";
+import {Trip} from "./Trip/Trip";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <TripList></TripList>
-      </div>
+      <Router history={browserHistory}>
+        <Route path="/" component={TripList} />
+        <Route path="/trip/:id" component={Trip} />
+      </Router>
     );
   }
 }
