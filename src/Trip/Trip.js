@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import TripService from "../TripService";
 
-export class Trip extends Component {
+export class Trip extends React.Component {
     state = {
         trip: {}
     }

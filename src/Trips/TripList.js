@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { TripListItem } from "./TripListItem";
 import TripService from "../TripService";
 
-export class TripList extends Component {
+export class TripList extends React.Component {
     state = {
         trips: []
     }
