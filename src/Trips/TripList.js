@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TripListItem } from "./TripListItem";
+import TripService from "../TripService";
 
 export class TripList extends Component {
     state = {
@@ -7,17 +8,10 @@ export class TripList extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            trips: [
-                {
-                    id: 1,
-                    name: "Sri Lanka"
-                },
-                {
-                    id: 2,
-                    name: "New Zealand"
-                }
-            ]
+        TripService.getAll().then(data => {
+            this.setState({
+                trips: data
+            });
         });
     }
 
